@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>自动滚动器设置</title>
+  <link rel="stylesheet" href="options.css" />
+</head>
+<body>
+  <main style="max-width:720px;margin:24px auto;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto">
+    <h2>自动滚动器设置</h2>
+    <div>
+      <label>默认速度（px/s）：<input id="defaultSpeed" type="number" min="50" max="4000" step="50" value="600"/></label>
+    </div>
+    <div style="margin-top:10px">
+      <label><input id="overlayEnabled" type="checkbox" checked/> 启用页面悬浮控制条</label>
+    </div>
+    <div style="margin-top:16px">
+      <button id="save">保存</button>
+    </div>
+    <p id="status" style="color:#1a73e8;margin-top:10px;display:none">设置已保存</p>
+  </main>
+  <script src="options.js"></script>
+</body>
+</html>

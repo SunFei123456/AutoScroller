@@ -1,0 +1,66 @@
+{
+  "manifest_version": 3,
+  "name": "AutoScroller - 自动滚动器",
+  "version": "1.0.0",
+  "description": "智能网页自动滚动工具，支持速度调节、暂停恢复、到底提示等功能",
+  
+  "permissions": [
+    "activeTab",
+    "scripting", 
+    "storage"
+  ],
+
+  "background": {
+    "service_worker": "background/background.js"
+  },
+
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content/overlay.js", "content/scrollEngine.js"],
+      "css": ["content/overlay.css"],
+      "run_at": "document_end"
+    }
+  ],
+
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_title": "自动滚动器"
+  },
+
+  "commands": {
+    "start_stop": {
+      "suggested_key": {
+        "default": "Alt+S"
+      },
+      "description": "启动/停止自动滚动"
+    },
+    "pause_resume": {
+      "suggested_key": {
+        "default": "Alt+P"
+      },
+      "description": "暂停/恢复自动滚动"
+    },
+    "speed_up": {
+      "suggested_key": {
+        "default": "Alt+Up"
+      },
+      "description": "加速滚动"
+    },
+    "speed_down": {
+      "suggested_key": {
+        "default": "Alt+Down"
+      },
+      "description": "减速滚动"
+    }
+  },
+
+  "options_page": "options/options.html",
+
+  "web_accessible_resources": [
+    {
+      "resources": ["content/overlay.css"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}
